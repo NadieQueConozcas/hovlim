@@ -53,6 +53,10 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      # ✅ Disable Jekyll so GitHub Pages doesn’t skip folders starting with "_"
+      - name: Disable Jekyll
+        run: touch ./public/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
